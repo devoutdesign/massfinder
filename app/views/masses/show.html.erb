@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Day:</b>
+  <%= @mass.day %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @mass.time %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @mass.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_mass_path(@mass) %> |
+<%= link_to 'Back', masses_path %>

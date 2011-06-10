@@ -1,0 +1,27 @@
+<h1>Listing masses</h1>
+
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Time</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @masses.each do |mass| %>
+  <tr>
+    <td><%= mass.day %></td>
+    <td><%= mass.time %></td>
+    <td><%= mass.type %></td>
+    <td><%= link_to 'Show', mass %></td>
+    <td><%= link_to 'Edit', edit_mass_path(mass) %></td>
+    <td><%= link_to 'Destroy', mass, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mass', new_mass_path %>

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @parish.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @parish.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @parish.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @parish.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @parish.zip %>
+</p>
+
+<p>
+  <b>Mailing address:</b>
+  <%= @parish.mailing_address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @parish.phone %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @parish.website %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @parish.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_parish_path(@parish) %> |
+<%= link_to 'Back', parishes_path %>

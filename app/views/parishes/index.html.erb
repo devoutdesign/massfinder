@@ -1,0 +1,42 @@
+<h1>Listing parishes</h1>
+
+<% @parishes.each do |parish| %>
+  <div style="border-bottom:1px solid #666; padding-bottom:1em;">
+    <div>
+      <h2 style="display:inline-block"><%= parish.name %></h2> <%= link_to 'Edit', edit_parish_path(parish) %> | <%= link_to 'Delete', parish, :confirm => 'Are you sure?', :method => :delete %>
+    </div>
+    <div style="width:50%; float:right;">
+      <strong>Mass Times</strong><br />
+    </div>
+  
+    <div style="width:50%">
+      <div style="width:50%; float:right;">
+        <% if parish.mailing_address.empty? == false %>
+          <strong>Mailing Address</strong><br />
+          <%= parish.mailing_address %><br />
+          <%= parish.city %>, <%= parish.state %> <%= parish.zip %><br />
+        <% end %>
+      </div>
+      <div style="width:50%">
+        <strong>Physical Address</strong><br />
+        <%= parish.address %><br />
+        <%= parish.city %>, <%= parish.state %> <%= parish.zip %><br />
+      </div>
+      <br />
+      <strong>Latitude/Longitude:</strong> 
+      <% if parish.latitude.nil? == false %>
+        <%= parish.latitude %> / <%= parish.longitude %><br />
+      <% else %>
+        <%= link_to 'Get Latitude & Longitude', getlatlong_url(:id => parish.id) %><br />
+      <% end %>
+      <br />
+      <strong>Phone:</strong> <%= parish.phone %><br />
+      <strong>Email:</strong> <%= parish.email %><br />
+      <strong>Website:</strong> <% if parish.website.empty? == false %><a href="<%= parish.website %>"><%= parish.website %></a><% end %>
+    </div>
+  </div>
+<% end %>
+
+<br />
+
+<%= link_to 'New Parish', new_parish_path %>

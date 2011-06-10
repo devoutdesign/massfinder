@@ -9,58 +9,6 @@
 <!-- start gmaps4rails stuff -->
 	<%= yield :head %>
 <!-- end gmaps4rails stuff -->
-
-<script>
-//     
-// var geocoder;
-// var map;
-// 
-// function initialize() {
-//   
-//   geocoder = new google.maps.Geocoder();
-//   
-//   var portland = new google.maps.LatLng(45.5234515,-122.6762071);
-//   var myOptions = {
-//     zoom: 11,
-//     center: portland,
-//     mapTypeId: google.maps.MapTypeId.TERRAIN,
-//     disableDefaultUI: true
-//   };
-//   map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-// 
-
-//   <%# @parishes.each do |parish| %>
-//     var infowindow = new google.maps.InfoWindow({
-//         content: 'Parish: <%#= escape_javascript(parish.name) %>'
-//     });
-//     
-//     var marker = new google.maps.Marker({
-//         position: new google.maps.LatLng(<%#= parish.latitude %>, <%#= parish.longitude %>),
-//         map: map,
-//         title:'<%#= escape_javascript(parish.name) %>'
-//     });
-//     
-//     google.maps.event.addListener(marker, 'click', function() {
-//       infowindow.open(map,marker);
-//     });
-//   <%# end %>
-// }
-
-// function codeAddress() {
-//   var address = document.getElementById("address").value;
-//   geocoder.geocode({'address': address}, function(results, status) {
-//     if (status == google.maps.GeocoderStatus.OK) {
-//       map.setCenter(results[0].geometry.location);
-//       //var marker = new google.maps.Marker({
-//       //  map: map, 
-//       //  position: results[0].geometry.location
-//       //});
-//     } else {
-//       alert("Geocode was not successful for the following reason: " + status);
-//     }
-//   });
-// }
-</script>
 </head>
 <body>
 
@@ -69,11 +17,18 @@
     <h1>PortlandMassTimes.com</h1>
     <h2>Helping you find your next mass.</h2>
   </div>
-  <div id="zip-search">
+
+  <!-- <div id="zip-search">
     <span>Find a church near you:</span><br />
     <input type="text" id="address" value="Your Zip Code">
     <input type="button" value="Go" onclick="codeAddress()">
-  </div>
+  </div> -->
+
+</div>
+
+<div id="sidebar">
+	<h3>Search Results</h3>
+	<ul id="markers_list"></ul>
 </div>
 
 <div id="map_container">
@@ -83,7 +38,7 @@
 		})
 %>
 </div>
-<ul id="markers_list"></ul>
+
 
 <div id="footer">
   <p style="margin:0">PortlandMassTimes.com is a service of <a href="http://www.devoutdesign.com" title="Devout Design, Catholic web design and application development">Devout Design</a>.</p>

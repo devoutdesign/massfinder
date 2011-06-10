@@ -8,15 +8,16 @@ class Parish < ActiveRecord::Base
   
   def gmaps4rails_infowindow
     # add here whatever html content you desire, it will be displayed when users clicks on the marker
-    "<h2>#{self.name}</h2>#{self.address}, #{self.city}, #{self.state} #{self.zip}"
+    "<h2>#{self.name}</h2><div class='address'>#{self.address}<br>#{self.city}, #{self.state} #{self.zip}</div>"
   end
   
   def gmaps4rails_title
-    # add here whatever text you desire
+    #text only
     self.name
   end
   
   def gmaps4rails_sidebar
-    "<span>#{self.name}</span>"
+    #html goes here
+    "#{self.name}"
   end
 end

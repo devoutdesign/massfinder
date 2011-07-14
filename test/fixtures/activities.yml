@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  parish_id: 
+  title: MyString
+  day: MyString
+  time: MyString
+
+two:
+  parish_id: 
+  title: MyString
+  day: MyString
+  time: MyString

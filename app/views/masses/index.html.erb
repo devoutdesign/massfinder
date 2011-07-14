@@ -5,7 +5,7 @@
     <th>Day</th>
     <th>Time</th>
     <th>Type</th>
-    <th></th>
+    <th>Parish</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,15 +13,15 @@
 <% @masses.each do |mass| %>
   <tr>
     <td><%= mass.day %></td>
-    <td><%= mass.time %></td>
-    <td><%= mass.type %></td>
-    <td><%= link_to 'Show', mass %></td>
-    <td><%= link_to 'Edit', edit_mass_path(mass) %></td>
-    <td><%= link_to 'Destroy', mass, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= mass.start_time %></td>
+    <td><%= mass.notes %></td>
+    <td><%= mass.parish_id %></td>
+    <td><%= link_to 'Edit', edit_parish_mass_path(@parish, mass) %></td>
+    <td><%= link_to 'Destroy', parish_mass_path(@parish, mass), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Mass', new_mass_path %>
+<%= link_to 'New Mass', new_parish_mass_path(@parish) %>

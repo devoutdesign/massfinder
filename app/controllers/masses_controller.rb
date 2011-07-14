@@ -2,7 +2,8 @@ class MassesController < ApplicationController
   # GET /masses
   # GET /masses.xml
   def index
-    @masses = Mass.all
+    @parish = Parish.find(params[:parish_id])
+    @masses = @parish.masses.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +14,7 @@ class MassesController < ApplicationController
   # GET /masses/1
   # GET /masses/1.xml
   def show
+    @parish = Parish.find(params[:parish_id])
     @mass = Mass.find(params[:id])
 
     respond_to do |format|
@@ -24,7 +26,8 @@ class MassesController < ApplicationController
   # GET /masses/new
   # GET /masses/new.xml
   def new
-    @mass = Mass.new
+    @parish = Parish.find(params[:parish_id])
+    @mass = @parish.masses.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,17 +37,19 @@ class MassesController < ApplicationController
 
   # GET /masses/1/edit
   def edit
+    @parish = Parish.find(params[:parish_id])
     @mass = Mass.find(params[:id])
   end
 
   # POST /masses
   # POST /masses.xml
   def create
-    @mass = Mass.new(params[:mass])
+    @parish = Parish.find(params[:parish_id])
+    @mass = @parish.masses.new(params[:mass])
 
     respond_to do |format|
       if @mass.save
-        format.html { redirect_to(@mass, :notice => 'Mass was successfully created.') }
+        format.html { redirect_to(parishes_path, :notice => 'Mass was successfully created.') }
         format.xml  { render :xml => @mass, :status => :created, :location => @mass }
       else
         format.html { render :action => "new" }
@@ -56,11 +61,12 @@ class MassesController < ApplicationController
   # PUT /masses/1
   # PUT /masses/1.xml
   def update
+    @parish = Parish.find(params[:parish_id])
     @mass = Mass.find(params[:id])
 
     respond_to do |format|
       if @mass.update_attributes(params[:mass])
-        format.html { redirect_to(@mass, :notice => 'Mass was successfully updated.') }
+        format.html { redirect_to(parishes_path, :notice => 'Mass was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +82,7 @@ class MassesController < ApplicationController
     @mass.destroy
 
     respond_to do |format|
-      format.html { redirect_to(masses_url) }
+      format.html { redirect_to(parishes_path) }
       format.xml  { head :ok }
     end
   end

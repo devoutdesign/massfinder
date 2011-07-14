@@ -10,12 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110605005404) do
+ActiveRecord::Schema.define(:version => 20110705200245) do
 
   create_table "masses", :force => true do |t|
     t.string   "day"
-    t.string   "time"
-    t.string   "type"
+    t.string   "start_time"
+    t.string   "notes"
     t.integer  "parish_id"
     t.datetime "created_at"
     t.datetime "updated_at"

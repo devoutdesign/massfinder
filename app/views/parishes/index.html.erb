@@ -7,8 +7,14 @@
     </div>
     <div style="width:50%; float:right;">
       <strong>Mass Times</strong><br />
+			<ul>
+			<% parish.masses.each do |mass| %>
+				<li><%= Date::DAYNAMES[mass.day.to_i] %>, <%= mass.start_time %> <%= mass.notes %> <%= link_to 'Edit', edit_parish_mass_path(parish, mass) %> | <%= link_to 'Delete', parish_mass_path(parish, mass), :confirm => 'Are you sure?', :method => :delete %></li>
+			<% end %>
+			</ul>
+			<%= link_to 'Add New', new_parish_mass_path(parish) %>
     </div>
-  
+  	
     <div style="width:50%">
       <div style="width:50%; float:right;">
         <% if parish.mailing_address.empty? == false %>

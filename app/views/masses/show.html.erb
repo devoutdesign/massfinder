@@ -7,14 +7,14 @@
 
 <p>
   <b>Time:</b>
-  <%= @mass.time %>
+  <%= @mass.start_time %>
 </p>
 
 <p>
-  <b>Type:</b>
-  <%= @mass.type %>
+  <b>Notes:</b>
+  <%= @mass.notes %>
 </p>
 
 
-<%= link_to 'Edit', edit_mass_path(@mass) %> |
-<%= link_to 'Back', masses_path %>
+<%= link_to 'Edit', edit_parish_mass_path(@parish, @mass) %> |
+<%= link_to 'Back', parish_masses_path(@parish) %>
